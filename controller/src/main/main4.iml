@@ -10,5 +10,7 @@
     <orderEntry type="library" name="target" level="project" />
     <orderEntry type="library" name="contract-0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="main3" />
+    <orderEntry type="library" name="Maven: Arquillian JUnit:Release" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
   </component>
 </module>
