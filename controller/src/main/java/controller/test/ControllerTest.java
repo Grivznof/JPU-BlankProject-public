@@ -1,5 +1,7 @@
 package controller.test;
 
+import com.sun.javafx.scene.traversal.Direction;
+import controller.IUserOrder;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -9,6 +11,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -20,6 +24,58 @@ public class ControllerTest extends Object {
                 .addClass(controller.Controller.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
+
+    public void orderPerform(final IUserOrderTest userOrderTest){
+        if (userOrderTest != null){
+            final IModelTest player = this.IModelTest.getIModelByPlayer(userOrderTest.getPlayer()); // ask Zack method's name IModel and player
+            if (player != null){
+                Direction direction;
+                switch (userOrderTest.getOrder()){
+                    case UP:
+                        direction = Direction.UP;
+                        break;
+                    case RIGHT:
+                        direction = Direction.RIGHT;
+                        break;
+                    case DOWN:
+                        direction = Direction.DOWN;
+                        break;
+                    case LEFT:
+                        direction = Direction.LEFT;
+                        break;
+                    case NOP:
+                    default:
+                        direction = this.IModelTest.getMobileByPlayer(userOrderTest.getPlayer()).getDirection; // ask Zack method's name
+                        break;
+
+                }
+                player.setDirection(direction); // ask Zack method's name
+            }
+        }
+    }
+
+    public void play() {
+        this.gameLoop();
+        this.viewSystem.displayMessage("Game Over !");
+        this.viewSystem.closeAll();
+    }
+
+    private void gameLoop(){
+        while (!this.isGameOver){
+            try {
+                Thread.sleep(TIME_SLEEP);
+            }
+            catch (final InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            final ArrayList<IMobile> initialMobiles = new ArrayList<~>();
+            for (final IMobile mobile : this.player.getMobiles) //IMobile ask Zack Mobile method
+        }
+    }
+
+
+
+
 
     @org.junit.Test
     public void control() {
