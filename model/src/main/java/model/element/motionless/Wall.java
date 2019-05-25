@@ -5,12 +5,8 @@ import model.element.Sprite;
 
 class Wall extends MotionlessElement {
 
-    /** The Constant SPRITE. */
     private static final Sprite SPRITE = new Sprite('W',"Wall.jpg");
 
-    /**
-     * Instantiates a new ditchLeft.
-     */
     Wall() {
         super(SPRITE, Permeability.BLOCKING);
     }
