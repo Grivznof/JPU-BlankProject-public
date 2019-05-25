@@ -12,6 +12,6 @@ class Exit extends MotionlessElement {
      * Instantiates a new ditchLeft.
      */
     Exit() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.PENETRABLE);
     }
 }

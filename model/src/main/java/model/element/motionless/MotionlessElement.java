@@ -1,9 +1,10 @@
 package model.element.motionless;
 
+import model.element.Permeability;
 import model.element.Sprite;
 
-public abstract class MotionlessElement {
-    public MotionlessElement(Sprite sprite, Object blocking) {
+abstract class MotionlessElement {
+    MotionlessElement(final Sprite sprite, final Permeability permeability) {
 
     }
 }
