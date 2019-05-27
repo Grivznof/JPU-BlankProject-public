@@ -65,7 +65,7 @@ public class ControllerTest extends Object {
         }
     }
 
-    public void play() {
+    public static void play() {
         this.gameLoop();
         this.viewSystem.displayMessage("Game Over !");
         this.viewSystem.closeAll();
@@ -85,10 +85,13 @@ public class ControllerTest extends Object {
             }//IMobile ask Zack Mobile method
             this.playerModel.setMobilesHaveMoved();
         }
-        public void setViewSystem(final IVewSystem viewSystem) {this.viewSystem = viewSystem;} //setview system here
+
+
     }
 
-
+    public static void setViewSystem(final IViewSystem viewSystem) {
+        this.viewSystem = viewSystem;
+    }
 
 
 

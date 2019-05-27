@@ -6,6 +6,7 @@ package main;
 
 import contract.ControllerOrder;
 import controller.Controller;
+import controller.test.ControllerTest;
 import model.Model;
 import view.View;
 
@@ -28,7 +29,9 @@ public abstract class Main {
         final Controller controller = new Controller(view, model);
         view.setController(controller);
 
-        controller.control();
-        controller.orderPerform(ControllerOrder.English);
+        final Controller Controller = new Controller(playerModel);
+        final IViewSystem View = new View(Controller, playerModel, playerModel);
+        ControllerTest.setViewSystem(View);
+        ControllerTest.play();
     }
 }
