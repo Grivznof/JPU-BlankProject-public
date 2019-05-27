@@ -5,8 +5,7 @@ import model.element.Sprite;
 
 class Exit extends MotionlessElement {
 
-
-    private static final Sprite SPRITE = new Sprite('E',"Exit.jpg");
+    private static final Sprite SPRITE = new Sprite('E',"Exit.png");
 
 
     Exit() {

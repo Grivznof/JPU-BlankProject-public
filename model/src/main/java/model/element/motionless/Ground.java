@@ -5,7 +5,7 @@ import model.element.Sprite;
 
 class Ground extends MotionlessElement {
 
-    private static final Sprite SPRITE = new Sprite('G',"Ground.jpg");
+    private static final Sprite SPRITE = new Sprite('G',"Ground.png");
 
     Ground() {
         super(SPRITE, Permeability.PENETRABLE);

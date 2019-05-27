@@ -10,6 +10,8 @@ public abstract class MotionlessElementsFactory {
 
     private static final Exit exit = new Exit();
 
+    private static final Explosion explosion = new Explosion();
+
 
     private static MotionlessElement[] motionlessElements = {
             border,
@@ -24,6 +26,8 @@ public abstract class MotionlessElementsFactory {
     public static MotionlessElement createGround() { return ground;}
 
     public static MotionlessElement createExit () { return exit;}
+
+    public static MotionlessElement createExplosion () {return explosion; }
 
 
 

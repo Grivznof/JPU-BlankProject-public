@@ -1,4 +1,6 @@
 package model.element.mobile;
 
-public class Player {
+public class PlayerModel {
+
+
 }

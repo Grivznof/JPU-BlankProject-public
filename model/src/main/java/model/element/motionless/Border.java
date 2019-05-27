@@ -5,7 +5,7 @@ import model.element.Sprite;
 
 class Border extends MotionlessElement {
 
-        private static final Sprite SPRITE = new Sprite('B',"Border.jpg");
+        private static final Sprite SPRITE = new Sprite('B',"Wall.png");
 
         Border() {
             super(SPRITE, Permeability.BLOCKING);
