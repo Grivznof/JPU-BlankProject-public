@@ -2,6 +2,7 @@ package model.element.mobile;
 
 import model.Dimension;
 import model.Direction;
+import model.IArea;
 import model.Position;
 import model.element.Sprite;
 
@@ -21,5 +22,11 @@ public interface IMobile {
 
     public Sprite getSprite();
 
-    public void move();
+    void move();
+
+    public void placeInArea(IArea area);
+
+    void setPlayerModel(IPlayerModel playerModel);
+
+    boolean isPlayer(int player);
 }

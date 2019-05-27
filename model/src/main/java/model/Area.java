@@ -7,6 +7,10 @@ import java.io.IOException;
 
 public class Area {
 
+    public Area(Dimension dimension) {
+
+    }
+
     class Sky implements IArea {
         private String	IMAGE	= "ground.png";
         private final Dimension	dimension;
