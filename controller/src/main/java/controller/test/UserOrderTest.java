@@ -12,13 +12,31 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
-
 @RunWith(Arquillian.class)
 public class UserOrderTest implements IUserOrder {
 
     private final int player;
     private final Order order;
+
+    public UserOrderTest(int player, Order order) {
+        this.player = player;
+        this.order = order;
+    }
+
+    @Test
+    public int getPlayer() {
+        return this.player;
+    }
+
+    @Test
+    public Order getOrder() {
+        return this.order;
+    }
+
+
+
+
+
 
 
     @Deployment
@@ -36,14 +54,6 @@ public class UserOrderTest implements IUserOrder {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void getPlayer() {
-        return this.player;
-    }
 
-    @Test
-    public void getOrder() {
-        return this.order
-    }
 
 }

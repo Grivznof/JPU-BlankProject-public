@@ -1,6 +1,7 @@
 package controller.test;
 
 import com.sun.javafx.scene.traversal.Direction;
+import contract.IModel;
 import controller.IUserOrder;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -22,6 +23,7 @@ public class ControllerTest extends Object {
     private boolean isGameOver  = false;
     private final IPlayerModel playerModel;
     private IViewSystem viewSystem;
+    private static int TIME_SLEEP = 30;
 
     @Deployment
     public static JavaArchive createDeployment() {
@@ -30,9 +32,13 @@ public class ControllerTest extends Object {
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-    public void orderPerform(final IUserOrderTest userOrderTest){
+    public ControllerTest(final IPlayerModel playerModel){
+        this.playerModel = playerModel;
+    }
+
+    public void orderPerform(final IUserOrder userOrderTest){
         if (userOrderTest != null){
-            final IModelTest player = this.IModel.getIModelByPlayer(userOrderTest.getPlayer()); // ask Zack method's name IModel and player
+            final IModel player = this.playerModel.getIModelByPlayer(userOrderTest.getPlayer()); // ask Zack method's name IModel and player
             if (player != null){
                 Direction direction;
                 switch (userOrderTest.getOrder()){
@@ -50,7 +56,7 @@ public class ControllerTest extends Object {
                         break;
                     case NOP:
                     default:
-                        direction = this.IModel.getMobileByPlayer(userOrderTest.getPlayer()).getDirection; // ask Zack method's name
+                        direction = this.playerModel.getMobileByPlayer(userOrderTest.getPlayer()).getDirection; // ask Zack method's name
                         break;
 
                 }
@@ -74,7 +80,7 @@ public class ControllerTest extends Object {
                 Thread.currentThread().interrupt();
             }
             final ArrayList<IMobile> initialMobiles = new ArrayList<~>();
-            for (final IMobile mobile : this.player.getMobiles) {
+            for (final IMobile mobile : this.playerModel.getMobiles) {
                 initialMobiles.add(mobile);
             }//IMobile ask Zack Mobile method
             this.playerModel.setMobilesHaveMoved();
