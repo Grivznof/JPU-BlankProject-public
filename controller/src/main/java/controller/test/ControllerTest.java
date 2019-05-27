@@ -18,6 +18,11 @@ import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 public class ControllerTest extends Object {
+
+    private boolean isGameOver  = false;
+    private final IPlayerModel playerModel;
+    private IViewSystem viewSystem;
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -27,7 +32,7 @@ public class ControllerTest extends Object {
 
     public void orderPerform(final IUserOrderTest userOrderTest){
         if (userOrderTest != null){
-            final IModelTest player = this.IModelTest.getIModelByPlayer(userOrderTest.getPlayer()); // ask Zack method's name IModel and player
+            final IModelTest player = this.IModel.getIModelByPlayer(userOrderTest.getPlayer()); // ask Zack method's name IModel and player
             if (player != null){
                 Direction direction;
                 switch (userOrderTest.getOrder()){
@@ -45,7 +50,7 @@ public class ControllerTest extends Object {
                         break;
                     case NOP:
                     default:
-                        direction = this.IModelTest.getMobileByPlayer(userOrderTest.getPlayer()).getDirection; // ask Zack method's name
+                        direction = this.IModel.getMobileByPlayer(userOrderTest.getPlayer()).getDirection; // ask Zack method's name
                         break;
 
                 }
@@ -60,7 +65,7 @@ public class ControllerTest extends Object {
         this.viewSystem.closeAll();
     }
 
-    private void gameLoop(){
+    private void gameLoop(){ //todo: comparer avec insane vehicule
         while (!this.isGameOver){
             try {
                 Thread.sleep(TIME_SLEEP);
@@ -69,8 +74,12 @@ public class ControllerTest extends Object {
                 Thread.currentThread().interrupt();
             }
             final ArrayList<IMobile> initialMobiles = new ArrayList<~>();
-            for (final IMobile mobile : this.player.getMobiles) //IMobile ask Zack Mobile method
+            for (final IMobile mobile : this.player.getMobiles) {
+                initialMobiles.add(mobile);
+            }//IMobile ask Zack Mobile method
+            this.playerModel.setMobilesHaveMoved();
         }
+        public void setViewSystem(final IVewSystem viewSystem) {this.viewSystem = viewSystem;} //setview system here
     }
 
 
