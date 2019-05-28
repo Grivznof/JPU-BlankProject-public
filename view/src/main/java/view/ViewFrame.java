@@ -19,10 +19,10 @@ import contract.IModel;
 class ViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
-	private IModel						model;
+	private IModel model;
 
 	/** The controller. */
-	private IController				controller;
+	private IController controller;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 
@@ -131,7 +131,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(1472 + this.getInsets().left + this.getInsets().right,  896+ this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 	}
 
