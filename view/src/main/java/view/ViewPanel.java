@@ -1,10 +1,20 @@
 package view;
 
-import java.awt.Graphics;
+import entity.MapTile;
+
+import java.awt.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 import javax.swing.JPanel;
+
+import static java.lang.Thread.sleep;
 
 /**
  * The Class ViewPanel.
@@ -13,18 +23,21 @@ import javax.swing.JPanel;
  */
 class ViewPanel extends JPanel implements Observer {
 
-	/** The view frame. */
-	private ViewFrame					viewFrame;
-	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -998294702363713521L;
+	/**
+	 * The view frame.
+	 */
+	private ViewFrame viewFrame;
+	/**
+	 * The Constant serialVersionUID.
+	 */
+	private static final long serialVersionUID = -998294702363713521L;
 
 	/**
 	 * Instantiates a new view panel.
 	 *
-	 * @param viewFrame
-	 *          the view frame
+	 * @param viewFrame the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	public ViewPanel(final ViewFrame viewFrame) throws IOException {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
@@ -41,8 +54,7 @@ class ViewPanel extends JPanel implements Observer {
 	/**
 	 * Sets the view frame.
 	 *
-	 * @param viewFrame
-	 *          the new view frame
+	 * @param viewFrame the new view frame
 	 */
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;
@@ -65,6 +77,39 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
+
+		ArrayList<MapTile> DrawMap = this.getViewFrame().getModel().getMap();
+		BufferedImage imageTemp = null;
+
+		try {
+			imageTemp = ImageIO.read(new File("C:\\Users\\mrsyl\\Desktop\\JPU-BlankProject-public\\sprites" + "\\" + "background.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for(int i=0; i<1; i++){
+			graphics.drawImage(imageTemp, 0, 0, 2112, 1056, null);
+		}
+
+
+		for (int i = 0; i < DrawMap.size(); i++) {
+
+			try {
+				if (DrawMap.get(i).getName().equals("Empty")) {
+				} else if (DrawMap.get(i).getName().equals("Player") || DrawMap.get(i).getName().equals("Enemy")) {
+					imageTemp = ImageIO.read(new File("C:\\Users\\mrsyl\\Desktop\\JPU-BlankProject-public\\sprites" + "\\" + DrawMap.get(i).getName() + ".png"));
+				} else {
+					imageTemp = ImageIO.read(new File("C:\\Users\\mrsyl\\Desktop\\JPU-BlankProject-public\\sprites" + "\\" + DrawMap.get(i).getName() + ".png"));
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			graphics.drawImage(imageTemp, DrawMap.get(i).getX() * 3, DrawMap.get(i).getY() * 3, 48, 48, null);
+		}
+
+		this.repaint();
+
 	}
+
 }
+

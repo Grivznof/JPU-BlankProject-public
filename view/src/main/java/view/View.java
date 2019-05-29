@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.SwingUtilities;
 
@@ -9,11 +10,6 @@ import contract.IController;
 import contract.IModel;
 import contract.IView;
 
-/**
- * The Class View.
- *
- * @author Jean-Aymeric Diet
- */
 public final class View implements IView, Runnable {
 
 	/** The frame. */
@@ -25,7 +21,7 @@ public final class View implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
-	public View(final IModel model) {
+	public View(final IModel model) throws IOException {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
@@ -39,16 +35,16 @@ public final class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
+			case KeyEvent.VK_UP:
+				return ControllerOrder.UP;
+			case KeyEvent.VK_LEFT:
+				return ControllerOrder.LEFT;
+			case KeyEvent.VK_DOWN:
+				return ControllerOrder.DOWN;
+			case KeyEvent.VK_RIGHT:
+				return ControllerOrder.RIGHT;
 			default:
-				return ControllerOrder.English;
+				return ControllerOrder.STAND;
 		}
 	}
 
@@ -78,5 +74,8 @@ public final class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+	public void closeAll() {
+		this.viewFrame.dispose();
 	}
 }

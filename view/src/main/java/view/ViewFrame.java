@@ -4,6 +4,8 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,10 +21,10 @@ import contract.IModel;
 class ViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
-	private IModel						model;
+	private IModel model;
 
 	/** The controller. */
-	private IController				controller;
+	private IController controller;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 
@@ -34,7 +36,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	public ViewFrame(final IModel model) throws HeadlessException, IOException {
 		this.buildViewFrame(model);
 	}
 
@@ -46,7 +48,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
+	public ViewFrame(final IModel model, final GraphicsConfiguration gc) throws IOException {
 		super(gc);
 		this.buildViewFrame(model);
 	}
@@ -61,7 +63,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
+	public ViewFrame(final IModel model, final String title) throws HeadlessException, IOException {
 		super(title);
 		this.buildViewFrame(model);
 	}
@@ -76,7 +78,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
+	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) throws IOException {
 		super(title, gc);
 		this.buildViewFrame(model);
 	}
@@ -125,15 +127,16 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param model
 	 *          the model
 	 */
-	private void buildViewFrame(final IModel model) {
+	private void buildViewFrame(final IModel model) throws IOException{
 		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(2112 + this.getInsets().left + this.getInsets().right,  1056+ this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 	}
+
 
 	/**
 	 * Prints the message.
