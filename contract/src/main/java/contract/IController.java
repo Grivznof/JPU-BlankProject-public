@@ -15,8 +15,8 @@ public interface IController {
 	/**
 	 * Order perform.
 	 *
-	 * @param userOrder
+	 * @param controllerOrder
 	 *          the controller order
 	 */
-	public void orderPerform(final IUserOrder userOrder);
+	public void orderPerform(ControllerOrder controllerOrder);
 }

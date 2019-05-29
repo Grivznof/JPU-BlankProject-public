@@ -1,8 +1,8 @@
 package contract;
 
-import entity.HelloWorld;
-
 import java.util.Observable;
+
+import entity.HelloWorld;
 
 /**
  * The Interface IModel.
