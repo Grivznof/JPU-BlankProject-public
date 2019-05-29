@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.SwingUtilities;
 
@@ -20,7 +21,7 @@ public final class View implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
-	public View(final IModel model) {
+	public View(final IModel model) throws IOException {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
