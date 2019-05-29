@@ -1,10 +1,9 @@
-package model.element.mobile;
+package model.element;
 
 import model.Dimension;
 import model.Direction;
 import model.IArea;
 import model.Position;
-import model.element.Sprite;
 
 public interface IMobile {
 

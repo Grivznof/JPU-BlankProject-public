@@ -1,7 +1,5 @@
 package model;
 
-import model.element.mobile.Player;
-
 public class State {
 
     private boolean moving;

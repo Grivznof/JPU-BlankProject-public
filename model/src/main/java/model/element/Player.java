@@ -1,11 +1,9 @@
-package model.element.mobile;
+package model.element;
 
 import model.Dimension;
 import model.Direction;
 import model.IArea;
 import model.Position;
-import model.element.Permeability;
-import model.element.Sprite;
 
 import java.io.IOException;
 

@@ -6,5 +6,6 @@ public enum Permeability {
     SLIPPERY,
     PUSHABLE,
     DESTROYABLE,
+    PENETRABLE,
 
 }

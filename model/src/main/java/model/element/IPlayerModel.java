@@ -1,4 +1,4 @@
-package model.element.mobile;
+package model.element;
 
 import model.Dimension;
 import model.IArea;

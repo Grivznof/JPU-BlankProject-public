@@ -1,25 +1,25 @@
-package model;
+package model.element;
 
 import javax.naming.Name;
 
 public class Tileset {
 
-    private Name name;
+    private String factory;
     private int x;
     private int y;
 
 
-    private Tileset(final Name name, final int x, final int y) {
-        this.name = name;
+    public Tileset(final String factory, final int x, final int y) {
+        this.factory = factory;
         this.x = x;
         this.y = y;
 
     }
 
-    public name getName() {return this.name;}
+    public String getFactory() {return this.factory;}
 
-    public void setName(final String name) {
-        this.name = (name);
+    public void setFactory(final String Factory) {
+        this.factory = (factory);
     }
 
     public int getX() {

@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Tileset;
+import model.element.Tileset;
 
 
 class DAOMap{
@@ -37,7 +37,7 @@ class DAOMap{
 		final ResultSet resultSet = call.getResultSet();
 
 		while (resultSet.next()){
-			Tileset mapTile = new Tileset(resultSet.getString("components.NAME"),resultSet.getInt("positions.PosX"),resultSet.getInt("positions.PosY"));
+			Tileset mapTile = new Tileset(resultSet.getString("maps_integrate.nom_materiau"),resultSet.getInt("maps_integrate.X"),resultSet.getInt("maps_integrate.Y"));
 			Map.add(i, mapTile);
 			i++;
 		}
