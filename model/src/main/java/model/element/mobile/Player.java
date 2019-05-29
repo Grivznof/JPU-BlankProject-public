@@ -1,6 +1,9 @@
 package model.element.mobile;
 
+import model.Dimension;
+import model.Direction;
 import model.IArea;
+import model.Position;
 import model.element.Permeability;
 import model.element.Sprite;
 
@@ -27,8 +30,8 @@ public abstract class Player extends Mobile{
     /** The Constant spriteExplode. */
     private static final Sprite spriteExplode   = new Sprite('P', "Explode.png");
 
-    public Player(final int x, final int y, final IArea area) throws IOException {
-        super(x, y, sprite, area, Permeability.BLOCKING);
+    public Player(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) throws IOException {
+        super(direction, position, dimension, area, Permeability.BLOCKING, sprite);
         spriteTurnUp.loadImage();
         spriteTurnDown.loadImage();
         spriteTurnLeft.loadImage();

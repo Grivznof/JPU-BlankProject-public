@@ -18,14 +18,13 @@ abstract class Mobile extends Element implements IMobile{
     private Sprite sprite;
     private IArea area;
 
-
-    public Mobile(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) {
+    Mobile(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) {
         super (area, permeability, sprite);
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;
     }
-    
+
     public Direction getDirection() {
         return this.direction;
     }
