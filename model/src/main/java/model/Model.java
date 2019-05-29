@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IModel;
-import model.
+import model.element.Tileset;
 
 public final class Model extends Observable implements IModel{
 
 
-	private ArrayList<MapTile> map;
+	private ArrayList<Tileset> map;
 	private DAOMap DAO = new DAOMap(DBConnection.getInstance().getConnection());
 	private int ID = 404;
 
@@ -34,7 +34,7 @@ public final class Model extends Observable implements IModel{
 		return result;
 	}
 
-	public ArrayList<MapTile> getMap() {
+	public ArrayList<Tileset> getMap() {
 		return this.map;
 	}
 

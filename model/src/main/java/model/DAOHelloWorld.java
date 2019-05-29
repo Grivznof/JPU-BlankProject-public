@@ -10,6 +10,8 @@ import model.element.Tileset;
 
 class DAOMap{
 
+	private Connection connection;
+
 	/**
 	 * Instantiates a new DAO hello world.
 	 *

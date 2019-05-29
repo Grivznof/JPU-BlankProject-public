@@ -40,7 +40,7 @@ final class DBConnection {
 	 *
 	 * @return the boolean
 	 */
-	private State open() {
+	private boolean open() {
 		final DBProperties dbProperties = new DBProperties();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
