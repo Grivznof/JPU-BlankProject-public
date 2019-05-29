@@ -33,21 +33,17 @@ public final class View implements IView, Runnable {
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		IController controllerOrder;
 		switch (keyCode) {
-			case KeyEvent.VK_UP:
-				controllerOrder = new ControllerOrder(Order.UP);
-				break;
-			case KeyEvent.VK_RIGHT:
-				controllerOrder = new ControllerOrder(Order.RIGHT);
-				break;
-			case KeyEvent.VK_DOWN:
-				controllerOrder = new ControllerOrder(Order.DOWN);
-				break;
-			case KeyEvent.VK_LEFT:
-				controllerOrder = new ControllerOrder(Order.LEFT);
-				break;
-
+			case KeyEvent.VK_Z:
+				return ControllerOrder.UP;
+			case KeyEvent.VK_Q:
+				return ControllerOrder.LEFT;
+			case KeyEvent.VK_S:
+				return ControllerOrder.DOWN;
+			case KeyEvent.VK_D:
+				return ControllerOrder.RIGHT;
+			default:
+				return ControllerOrder.STAND;
 		}
 	}
 

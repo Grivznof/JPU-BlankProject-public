@@ -4,7 +4,8 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Observable;
+import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -47,7 +48,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
+	public ViewFrame(final IModel model, final GraphicsConfiguration gc) throws IOException {
 		super(gc);
 		this.buildViewFrame(model);
 	}
@@ -62,7 +63,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
+	public ViewFrame(final IModel model, final String title) throws HeadlessException, IOException {
 		super(title);
 		this.buildViewFrame(model);
 	}
@@ -126,14 +127,19 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param model
 	 *          the model
 	 */
-	private void buildViewFrame(final IModel model) {
+	private void buildViewFrame(final IModel model) throws IOException{
 		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(1472 + this.getInsets().left + this.getInsets().right,  896+ this.getInsets().top + this.getInsets().bottom);
+		this.setSize(2112 + this.getInsets().left + this.getInsets().right,  1056+ this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
+	}
+	public void adaptWindow() throws SQLException {
+		int[] temp = this.getModel().getSize();
+
+		this.setSize( temp[1] * 16 * 3 + this.getInsets().left + this.getInsets().right,  temp[0] * 16 * 3 + this.getInsets().top + this.getInsets().bottom);
 	}
 
 	/**
