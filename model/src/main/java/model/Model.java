@@ -1,79 +1,53 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IModel;
-import entity.HelloWorld;
+import model.
 
-/**
- * The Class Model.
- *
- * @author Jean-Aymeric Diet
- */
-public final class Model extends Observable implements IModel {
+public final class Model extends Observable implements IModel{
 
-	/** The helloWorld. */
-	private HelloWorld helloWorld;
+
+	private ArrayList<MapTile> map;
+	private DAOMap DAO = new DAOMap(DBConnection.getInstance().getConnection());
+	private int ID = 404;
 
 	/**
 	 * Instantiates a new model.
 	 */
-	public Model() {
-		this.helloWorld = new HelloWorld();
+	public Model() throws SQLException {
+		this.map = DAO.getMapSql(ID);
 	}
 
+	public void setID(int inte) {
+		this.ID = inte;
+	}
+
+	public int getID() {
+		return this.ID;
+	}
+
+	public int[] getSize() throws SQLException {
+		int[] result = DAO.getMapSize(this.ID);
+		return result;
+	}
+
+	public ArrayList<MapTile> getMap() {
+		return this.map;
+	}
+
+	public void setMap(int ID) throws SQLException {
+		this.map = DAO.getMapSql(ID);
+	}
+
+
 	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
-	/*
-	 * (non-Javadoc)
+	 * Gets the observable.
 	 *
-	 * @see contract.IModel#getMessage()
+	 * @return the observable
 	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
-	}
-
-	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadHelloWorld(final String code) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
 	/*
 	 * (non-Javadoc)
 	 *

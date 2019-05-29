@@ -3,7 +3,8 @@ package model;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import entity.Entity;
+import model.element.mobile.*;
+import model.element.motionless.*;
 
 /**
  * The Class DAOEntity.
