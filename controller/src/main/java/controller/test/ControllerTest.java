@@ -2,7 +2,9 @@ package controller.test;
 
 import com.sun.javafx.scene.traversal.Direction;
 import contract.IModel;
+import contract.IView;
 import controller.IUserOrder;
+import controller.UserOrder;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -21,7 +23,7 @@ import static org.junit.Assert.*;
 public class ControllerTest extends Object {
 
     private boolean isGameOver  = false;
-    private final IPlayerModel playerModel;
+    private IModel playerModel;
     private IViewSystem viewSystem;
     private static int TIME_SLEEP = 30;
 
@@ -36,12 +38,12 @@ public class ControllerTest extends Object {
         this.playerModel = playerModel;
     }
 
-    public void orderPerform(final IUserOrder userOrderTest){
-        if (userOrderTest != null){
-            final IModel player = this.playerModel.getIModelByPlayer(userOrderTest.getPlayer()); // ask Zack method's name IModel and player
+    public void orderPerform(final IUserOrder userOrder){
+        if (userOrder != null){
+            final IModel player = this.playerModel.getIModelByPlayer(userOrder.getPlayer()); // ask Zack method's name IModel and player
             if (player != null){
                 Direction direction;
-                switch (userOrderTest.getOrder()){
+                switch (userOrder.getOrder()){
                     case UP:
                         direction = Direction.UP;
                         break;
@@ -56,7 +58,7 @@ public class ControllerTest extends Object {
                         break;
                     case NOP:
                     default:
-                        direction = this.playerModel.getMobileByPlayer(userOrderTest.getPlayer()).getDirection; // ask Zack method's name
+                        direction = this.playerModel.getMobileByPlayer(userOrder.getPlayer()).getDirection; // ask Zack method's name
                         break;
 
                 }
@@ -65,13 +67,13 @@ public class ControllerTest extends Object {
         }
     }
 
-    public static void play() {
+    public void play() {
         this.gameLoop();
         this.viewSystem.displayMessage("Game Over !");
         this.viewSystem.closeAll();
     }
 
-    private void gameLoop(){ //todo: comparer avec insane vehicule
+    private void gameLoop(){
         while (!this.isGameOver){
             try {
                 Thread.sleep(TIME_SLEEP);
@@ -89,11 +91,37 @@ public class ControllerTest extends Object {
 
     }
 
-    public static void setViewSystem(final IViewSystem viewSystem) {
+    public void setViewSystem(final IViewSystem viewSystem) {
         this.viewSystem = viewSystem;
     }
 
+    private IModel getModel(){
+        return this.model;
+    }
 
+    private void setPlayerModel(final IModel model){
+        this.playerModel = model;
+    }
+
+    private IView getView(){
+        return this.view;
+    }
+
+    private void setView (final IView view) {
+        this.view = view;
+    }
+
+    private getStackOrder(){
+        return this.stackOrder;
+    }
+
+    private void setStackOrder(final UserOrder stackOrder) {
+        this.stackOrder = stackOrder;
+    }
+
+    private void clearStackOrder(){
+        this.stackOrder = UserOrder.NOP;
+    }
 
     @org.junit.Test
     public void control() {
