@@ -2,12 +2,12 @@ package model;
 
 public class Position {
 
-    private int	x;
-    private int	y;
+    public int	x;
+    public int	y;
     private int	maxX	= 1;
     private int	maxY	= 1;
 
-    public Position(final int x, final int y) {
+    private Position(final int x, final int y) {
         this.x = x;
         this.y = y;
     }

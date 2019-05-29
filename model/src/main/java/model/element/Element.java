@@ -1,5 +1,7 @@
 package model.element;
 
+import model.IArea;
+
 import java.awt.Image;
 
 public abstract class Element implements IElement {
@@ -12,7 +14,11 @@ public abstract class Element implements IElement {
         this.setSprite(sprite);
         this.setPermeability(permeability);
     }
-    public final Sprite getSprite() {
+
+    public Element(IArea area, Permeability permeability, Sprite sprite) {
+    }
+
+    public Sprite getSprite() {
         return this.sprite;
     }
 

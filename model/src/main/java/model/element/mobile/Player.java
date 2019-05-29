@@ -6,7 +6,7 @@ import model.element.Sprite;
 
 import java.io.IOException;
 
-public class Player {
+public abstract class Player extends Mobile{
 
     private static final Sprite sprite = new Sprite('P', "Player.png");
 
@@ -43,7 +43,7 @@ public class Player {
 
     public final void moveDown() {
         super.moveDown();
-        this.setStrite(spriteTurnDown);
+        this.setSprite(spriteTurnDown);
     }
 
     public final void moveLeft() {
@@ -52,7 +52,7 @@ public class Player {
     }
 
     public final void moveRight() {
-        super.moveLeft();
+        super.moveRight();
         this.setSprite(spriteTurnLeft);
     }
 

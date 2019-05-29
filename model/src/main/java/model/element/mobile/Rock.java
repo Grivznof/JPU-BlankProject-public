@@ -1,5 +1,6 @@
 package model.element.mobile;
 
+
 import model.element.Permeability;
 import model.element.Sprite;
 
@@ -10,6 +11,9 @@ public class Rock extends MobileElements {
     Rock() {
         super(SPRITE, Permeability.BLOCKING);
     }
+
+
+
 }
 
 

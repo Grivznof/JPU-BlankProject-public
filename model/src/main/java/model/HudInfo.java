@@ -7,11 +7,12 @@ public class HudInfo extends Observable {
     private int score;
     private int remainingsDiamonds;
     private int timer;
+    static Thread thread = new Thread();
 
     public HudInfo(int remainingsDiamonds) {
         this.score = 0;
         this.remainingsDiamonds = remainingsDiamonds;
-        this.timer = 120;
+        this.timer = 0;
     }
 
     public int getScore(){
@@ -41,6 +42,13 @@ public class HudInfo extends Observable {
     public void incrementScore() {
         this.score += 15;
         this.myNotify();
+    }
+
+    public void decrementTimer() throws InterruptedException {
+        for(int i = 60; i>0; i--){
+            thread.sleep(1000);
+            this.myNotify();
+        }
     }
 
     private void myNotify() {

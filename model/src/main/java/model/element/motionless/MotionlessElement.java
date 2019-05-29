@@ -1,5 +1,6 @@
 package model.element.motionless;
 
+import model.State;
 import model.element.Permeability;
 import model.element.Sprite;
 

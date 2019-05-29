@@ -12,13 +12,15 @@ import model.element.Sprite;
 abstract class Mobile extends Element implements IMobile{
 
     private Direction direction;
-    private final Position position;
-    private final Dimension dimension;
+    private Position position;
+    private Dimension dimension;
     private Permeability permeability;
     private Sprite sprite;
+    private IArea area;
 
-    public Mobile(final Direction direction, final Position position, final Dimension dimension, final Permeability permeability, final Sprite sprite) {
-        super (sprite, permeability);
+
+    public Mobile(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) {
+        super (area, permeability, sprite);
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;
@@ -68,25 +70,26 @@ abstract class Mobile extends Element implements IMobile{
         }
     }
 
-    private void moveUp() {
+    void moveUp() {
         this.position.setY(this.position.getY() - 1);
     }
 
-    private void moveRight() {
+    void moveRight() {
         this.position.setX(this.position.getX() + 1);
     }
 
-    private void moveDown() {
+    void moveDown() {
         this.position.setY(this.position.getY() + 1);
     }
 
-    private void moveLeft() {
+    void moveLeft() {
         this.position.setX(this.position.getX() - 1);
     }
 
-    public boolean isPlayer(final int player) {
-        return false;
-    }
+
+
+
 }
+
 
 
