@@ -106,11 +106,7 @@ class ViewPanel extends JPanel implements Observer {
 			}
 			graphics.drawImage(imageTemp, DrawMap.get(i).getX() * 3, DrawMap.get(i).getY() * 3, 48, 48, null);
 		}
-			try {
-				this.getViewFrame().adaptWindow();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
 			this.repaint();
 
 		}

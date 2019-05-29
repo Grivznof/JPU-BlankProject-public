@@ -36,7 +36,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	public ViewFrame(final IModel model) throws HeadlessException, IOException {
 		this.buildViewFrame(model);
 	}
 
@@ -78,7 +78,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param gc
 	 *          the gc
 	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
+	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) throws IOException {
 		super(title, gc);
 		this.buildViewFrame(model);
 	}
@@ -136,11 +136,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setSize(2112 + this.getInsets().left + this.getInsets().right,  1056+ this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 	}
-	public void adaptWindow() throws SQLException {
-		int[] temp = this.getModel().getSize();
 
-		this.setSize( temp[1] * 16 * 3 + this.getInsets().left + this.getInsets().right,  temp[0] * 16 * 3 + this.getInsets().top + this.getInsets().bottom);
-	}
 
 	/**
 	 * Prints the message.
