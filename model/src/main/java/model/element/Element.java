@@ -1,6 +1,7 @@
 package model.element;
 
-import model.IArea;
+import contract.IArea;
+import contract.IElement;
 
 import java.awt.Image;
 

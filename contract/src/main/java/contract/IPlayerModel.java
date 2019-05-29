@@ -1,14 +1,12 @@
-package model.element;
-
-import model.Dimension;
-import model.IArea;
+package contract;
 
 import java.util.ArrayList;
+import contract.IDimension;
 
 public interface IPlayerModel {
 
     public interface IDogfightModel {
-        public void buildArea(final Dimension dimension);
+        public void buildArea(final IDimension dimension);
 
         public IArea getArea();
 

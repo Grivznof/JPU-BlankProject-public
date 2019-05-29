@@ -1,4 +1,4 @@
-package model.element;
+package contract;
 
 public interface IElement {
 }

@@ -1,8 +1,11 @@
 package model.element;
 
+import contract.IDimension;
+import contract.IMobile;
+import contract.IPlayerModel;
 import model.Area;
 import model.Dimension;
-import model.IArea;
+import contract.IArea;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -21,7 +24,7 @@ public class PlayerModel extends Observable implements IPlayerModel {
         return (IArea) this.area;
     }
 
-    public void buildArea(final Dimension dimension) {
+    public void buildArea(final IDimension dimension) {
         this.area = new Area(dimension);
     }
 

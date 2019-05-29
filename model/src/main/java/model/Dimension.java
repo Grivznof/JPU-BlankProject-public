@@ -1,11 +1,13 @@
 package model;
 
-public class Dimension {
+import contract.IDimension;
+
+public class Dimension implements IDimension {
 
     private int	width;
     private int	height;
 
-    public Dimension(final int width, final int height) {
+    private Dimension(final int width, final int height) {
         this.width = width;
         this.height = height;
     }

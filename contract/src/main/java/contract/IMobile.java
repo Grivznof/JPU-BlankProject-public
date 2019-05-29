@@ -1,8 +1,6 @@
-package model.element;
+package contract;
 
 import model.Dimension;
-import model.Direction;
-import model.IArea;
 import model.Position;
 
 public interface IMobile {

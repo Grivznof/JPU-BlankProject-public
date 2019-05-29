@@ -1,8 +1,8 @@
 package model.element;
 
 import model.Dimension;
-import model.Direction;
-import model.IArea;
+import contract.Direction;
+import contract.IArea;
 import model.Position;
 
 import java.io.IOException;

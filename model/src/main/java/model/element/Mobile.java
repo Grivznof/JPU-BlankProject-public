@@ -1,12 +1,13 @@
 package model.element;
 
+import contract.IMobile;
 import model.Dimension;
-import model.Direction;
-import model.IArea;
+import contract.Direction;
+import contract.IArea;
 import model.Position;
 
 
-abstract class Mobile extends Element implements IMobile{
+abstract class Mobile extends Element implements IMobile {
 
     private Direction direction;
     private Position position;
