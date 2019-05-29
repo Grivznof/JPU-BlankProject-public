@@ -17,15 +17,14 @@ import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-
 @RunWith(Arquillian.class)
-public class ControllerTest extends Object {
+public class ControllerTest extends Object{
 
     private boolean isGameOver  = false;
     private IModel playerModel;
     private IViewSystem viewSystem;
     private static int TIME_SLEEP = 30;
+    private UserOrder stackOrder;
 
     @Deployment
     public static JavaArchive createDeployment() {
@@ -34,8 +33,10 @@ public class ControllerTest extends Object {
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-    public ControllerTest(final IPlayerModel playerModel){
-        this.playerModel = playerModel;
+    public ControllerTest(final IModel playerModel, final IView view){
+        this.setView(view);
+        this.setPlayerModel(playerModel);
+        this.clearStackOrder();
     }
 
     public void orderPerform(final IUserOrder userOrder){
@@ -111,7 +112,7 @@ public class ControllerTest extends Object {
         this.view = view;
     }
 
-    private getStackOrder(){
+    private UserOrder getStackOrder(){
         return this.stackOrder;
     }
 

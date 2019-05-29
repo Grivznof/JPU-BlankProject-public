@@ -8,7 +8,7 @@ import contract.IView;
 /**
  * The Class Controller.
  */
-public final class Controller implements IController {
+public final class Controller {
 
 	/** The view. */
 	private IView	view;

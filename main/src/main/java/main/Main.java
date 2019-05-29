@@ -5,6 +5,7 @@
 package main;
 
 import contract.ControllerOrder;
+import contract.IController;
 import controller.Controller;
 import controller.test.ControllerTest;
 import model.Model;
@@ -26,10 +27,10 @@ public abstract class Main {
     public static void main(final String[] args) {
         final Model model = new Model();
         final View view = new View(model);
-        final Controller controller = new Controller(view, model);
+        final ControllerTest controller = new ControllerTest(model, view);
         view.setController(controller);
 
-        final Controller Controller = new Controller(playerModel);
+        final ControllerTest Controller = new ControllerTest(playerModel);
         final IViewSystem View = new View(Controller, playerModel, playerModel);
         ControllerTest.setViewSystem(View);
         ControllerTest.play();
