@@ -3,7 +3,7 @@ package controller.test;
 import com.sun.javafx.scene.traversal.Direction;
 import contract.IModel;
 import contract.IView;
-import controller.IUserOrder;
+import contract.IUserOrder;
 import controller.UserOrder;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -38,7 +38,7 @@ public class ControllerTest extends Object{
         this.setPlayerModel(playerModel);
         this.clearStackOrder();
     }
-
+/*
     public void orderPerform(final IUserOrder userOrder){
         if (userOrder != null){
             final IModel player = this.playerModel.getIModelByPlayer(userOrder.getPlayer()); // ask Zack method's name IModel and player
@@ -146,5 +146,5 @@ public class ControllerTest extends Object{
 
     @Test
     public void orderPerform1() {
-    }
+    }*/
 }

@@ -1,99 +1,156 @@
 package controller;
 
+import com.sun.javafx.scene.traversal.Direction;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
+import contract.IUserOrder;
 import contract.IView;
+
+
+import java.util.ArrayList;
+
+
 
 /**
  * The Class Controller.
  */
-public final class Controller {
+public final class Controller implements IController {
 
-	/** The view. */
-	private IView	view;
+	private boolean isGameOver  = false;
+	private IModel playerModel;
+	private IView viewSystem;
+	private static int TIME_SLEEP = 30;
+	private UserOrder stackOrder;
 
-	/** The model. */
-	private IModel	model;
 
-	/**
-	 * Instantiates a new controller.
-	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
-	 */
-	public Controller(final IView view, final IModel model) {
+
+
+	public Controller(final IModel playerModel, final IView view){
 		this.setView(view);
-		this.setModel(model);
+		this.setPlayerModel(playerModel);
+		this.clearStackOrder();
 	}
 
-	/**
-     * Control.
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#control()
-	 */
+	public void orderPerform(final IUserOrder userOrder){
+		if (userOrder != null){
+			final IModel player = this.playerModel.getModelByPlayer(userOrder.getPlayer()); // ask Zack method's name IModel and player
+			if (player != null){
+				Direction direction;
+				switch (userOrder.getOrder()){
+					case UP:
+						direction = Direction.UP;
+						break;
+					case RIGHT:
+						direction = Direction.RIGHT;
+						break;
+					case DOWN:
+						direction = Direction.DOWN;
+						break;
+					case LEFT:
+						direction = Direction.LEFT;
+						break;
+					case NOP:
+					default:
+						direction = this.playerModel.getMobileByPlayer(userOrder.getPlayer()).getDirection; // ask Zack method's name
+						break;
+
+				}
+				player.setDirection(direction); // ask Zack method's name
+			}
+		}
+	}
+
+	public void play() {
+		this.gameLoop();
+		this.viewSystem.displayMessage("Game Over !");
+		this.viewSystem.closeAll();
+	}
+
+	private void gameLoop(){
+		while (!this.isGameOver){
+			try {
+				Thread.sleep(TIME_SLEEP);
+			}
+			catch (final InterruptedException ex) {
+				Thread.currentThread().interrupt();
+			}
+			final ArrayList<IMobile> initialMobiles = new ArrayList<~>();
+			for (final IMobile mobile : this.playerModel.getMobiles) {
+				initialMobiles.add(mobile);
+			}//IMobile ask Zack Mobile method
+			this.playerModel.setMobilesHaveMoved();
+		}
+
+
+	}
+
+	public void setViewSystem(final IView viewSystem) {
+		this.viewSystem = viewSystem;
+	}
+
+	private IModel getModel(){
+		return this.model;
+	}
+
+	private void setPlayerModel(final IModel model){
+		this.playerModel = model;
+	}
+
+	private IView getView(){
+		return this.view;
+	}
+
+
+	private void setView (final IView view) {
+		this.view = view;
+	}
+
+	private UserOrder getStackOrder(){
+		return this.stackOrder;
+	}
+
+
+	private void setStackOrder(final UserOrder stackOrder) {
+		this.stackOrder = stackOrder;
+	}
+
+	private void clearStackOrder(){
+		this.stackOrder = UserOrder.NOP;
+	}
+
+	@org.junit.Test
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
 	}
 
 	@Override
-	public void orderPerform(IUserOrder UserOrder) {
+	public void controller() {
 
 	}
 
-	/**
-     * Sets the view.
-     *
-     * @param pview
-     *            the new view
-     */
-	private void setView(final IView pview) {
-		this.view = pview;
+	@Override
+	public void orderPerform(ControllerOrder controllerOrder) {
+
 	}
 
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *          the new model
-	 */
-	private void setModel(final IModel model) {
-		this.model = model;
+	@org.junit.Test
+	public void orderPerform() {
 	}
 
-	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				this.model.loadHelloWorld("GB");
-				break;
-			case Francais:
-				this.model.loadHelloWorld("FR");
-				break;
-			case Deutsch:
-				this.model.loadHelloWorld("DE");
-				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
-				break;
-			default:
-				break;
-		}
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void control1() {
+	}
+
+	@Test
+	public void orderPerform1() {
 	}
 
 }

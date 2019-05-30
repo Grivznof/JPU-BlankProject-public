@@ -1,7 +1,7 @@
 package controller.test;
 
-import controller.IUserOrder;
-import controller.Order;
+import contract.IUserOrder;
+import contract.Order;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;

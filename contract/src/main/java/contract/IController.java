@@ -7,16 +7,12 @@ package contract;
  */
 public interface IController {
 
-	/**
-	 * Control.
-	 */
-	public void control();
 
 	/**
 	 * Order perform.
 	 *
-	 * @param userOrder
+	 * @param controllerOrder
 	 *          the controller order
 	 */
-	public void orderPerform(final IUserOrder userOrder);
+	void orderPerform(ControllerOrder controllerOrder);
 }
