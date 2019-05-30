@@ -1,5 +1,7 @@
 package controller.test;
 
+import contract.IUserOrder;
+import contract.Order;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -10,10 +12,33 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
-
 @RunWith(Arquillian.class)
-public class UserOrderTest extends Object {
+public class UserOrderTest implements IUserOrder {
+
+    private final int player;
+    private final Order order;
+
+    public UserOrderTest(int player, Order order) {
+        this.player = player;
+        this.order = order;
+    }
+
+    @Test
+    public int getPlayer() {
+        return this.player;
+    }
+
+    @Test
+    public Order getOrder() {
+        return this.order;
+    }
+
+
+
+
+
+
+
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -29,19 +54,6 @@ public class UserOrderTest extends Object {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void getPlayer() {
-    }
 
-    @Test
-    public void getOrder() {
-    }
 
-    @Test
-    public void getPlayer1() {
-    }
-
-    @Test
-    public void getOrder1() {
-    }
 }

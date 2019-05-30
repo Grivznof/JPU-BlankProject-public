@@ -42,7 +42,7 @@ public final class View implements IView, Runnable {
 			case KeyEvent.VK_RIGHT:
 				return ControllerOrder.RIGHT;
 			default:
-				return ControllerOrder.STAND;
+				return ControllerOrder.NOP;
 		}
 	}
 
@@ -70,6 +70,8 @@ public final class View implements IView, Runnable {
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
+
+
 	public void closeAll() {
 		this.viewFrame.dispose();
 	}

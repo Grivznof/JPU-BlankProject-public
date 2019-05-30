@@ -1,11 +1,7 @@
 package model.element;
 
-import contract.IDimension;
-import contract.IMobile;
-import contract.IPlayerModel;
+import contract.*;
 import model.Area;
-import model.Dimension;
-import contract.IArea;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -53,6 +49,16 @@ public class PlayerModel extends Observable implements IPlayerModel {
     public void setMobilesHavesMoved() {
         this.setChanged();
         this.notifyObservers();
+    }
+
+    @Override
+    public Direction getDirection() {
+        return null;
+    }
+
+    @Override
+    public void setDirection(Direction direction) {
+
     }
 }
 

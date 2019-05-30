@@ -55,8 +55,9 @@ abstract class Mobile implements IMobile {
             case LEFT:
                 this.moveLeft();
                 break;
-            default:
-                break;
+            case NOP:
+                default:
+                    break;
         }
     }
 

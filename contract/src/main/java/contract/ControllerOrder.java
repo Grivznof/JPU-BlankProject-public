@@ -16,6 +16,6 @@ package contract;
 
 		RIGHT,
 
-		STAND,
+		NOP,
 	}
 
