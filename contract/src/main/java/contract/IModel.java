@@ -1,7 +1,6 @@
 package contract;
-
-import entity.HelloWorld;
-
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 
 /**
@@ -9,27 +8,17 @@ import java.util.Observable;
  *
  * @author Jean-Aymeric Diet
  */
-public interface IModel {
+public interface IModel{
 
-	/**
-	 * Gets the hello world.
-	 *
-	 * @return the helloworld entity
-	 */
-	HelloWorld getHelloWorld();
+	public void setID(int inte);
 
-	/**
-	 * Load the message.
-	 *
-	 * @param code
-	 *          the code
-	 */
-	void loadHelloWorld(String code);
+	public int getID();
 
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
+	public int[] getSize()throws SQLException;
+
+	public ArrayList<contract.ITileset> getMap();
+
+	public void setMap(int ID) throws SQLException;
+
 	Observable getObservable();
 }

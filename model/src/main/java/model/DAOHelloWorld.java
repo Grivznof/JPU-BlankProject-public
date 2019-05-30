@@ -4,15 +4,16 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import entity.HelloWorld;
 
-/**
- * The Class DAOHelloWorld.
- *
- * @author Jean-Aymeric Diet
- */
-class DAOHelloWorld extends DAOEntity<HelloWorld> {
+import contract.ITileset;
+import model.element.Tileset;
+
+
+class DAOMap{
+
+	private Connection connection;
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -22,91 +23,45 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
-	public DAOHelloWorld(final Connection connection) throws SQLException {
-		super(connection);
+	public DAOMap(final Connection connection) throws SQLException {
+		this.connection = connection;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#create(model.Entity)
-	 */
-	@Override
-	public boolean create(final HelloWorld entity) {
-		// Not implemented
-		return false;
+	protected Connection getConnection() {
+		return this.connection;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#delete(model.Entity)
-	 */
-	@Override
-	public boolean delete(final HelloWorld entity) {
-		// Not implemented
-		return false;
-	}
+	public ArrayList<ITileset> getMapSql(int ID) throws SQLException {
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#update(model.Entity)
-	 */
-	@Override
-	public boolean update(final HelloWorld entity) {
-		// Not implemented
-		return false;
-	}
+		ArrayList<ITileset> Map = new ArrayList<ITileset>();
+		int i = 0;
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(int)
-	 */
-	@Override
-	public HelloWorld find(final int id) {
-		HelloWorld helloWorld = new HelloWorld();
+		final String sql = "{call GetMap(" + ID + ")}";
+		final CallableStatement call = this.getConnection().prepareCall(sql);
+		call.execute();
+		final ResultSet resultSet = call.getResultSet();
 
-		try {
-			final String sql = "{call helloworldById(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setInt(1, id);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(id, resultSet.getString("code"), resultSet.getString("message"));
-			}
-			return helloWorld;
-		} catch (final SQLException e) {
-			e.printStackTrace();
+		while (resultSet.next()){
+			ITileset tileset = new Tileset(resultSet.getString("maps_integrate.nom_materiau"),resultSet.getInt("maps_integrate.X"),resultSet.getInt("maps_integrate.Y"));
+			Map.add(i, tileset);
+			i++;
 		}
-		return null;
+
+		return Map;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(java.lang.String)
-	 */
-	@Override
-	public HelloWorld find(final String code) {
-		HelloWorld helloWorld = new HelloWorld();
+	public int[] getMapSize(int ID) throws SQLException {
+		int[] result = new int[2];
 
-		try {
-			final String sql = "{call helloworldByCode(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setString(1, code);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				helloWorld = new HelloWorld(resultSet.getInt("id"), code, resultSet.getString("message"));
-			}
-			return helloWorld;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
+		final String sql = "{call GetSize(" + ID + ")}";
+		final CallableStatement call = this.getConnection().prepareCall(sql);
+		call.execute();
+		final ResultSet resultSet = call.getResultSet();
+
+		resultSet.first();
+		result[0] = resultSet.getInt("Height");
+		result[1] = resultSet.getInt("Width");
+
+		return result;
 	}
-
 }

@@ -1,11 +1,6 @@
 package controller;
 
-import com.sun.javafx.scene.traversal.Direction;
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
-import contract.IUserOrder;
-import contract.IView;
+import contract.*;
 
 
 import java.util.ArrayList;
@@ -18,10 +13,12 @@ import java.util.ArrayList;
 public final class Controller implements IController {
 
 	private boolean isGameOver  = false;
-	private IModel playerModel;
+	private IPlayerModel playerModel;
 	private IView viewSystem;
 	private static int TIME_SLEEP = 30;
-	private UserOrder stackOrder;
+	private Order stackOrder;
+	private IModel model;
+	private IView view;
 
 
 
@@ -34,7 +31,7 @@ public final class Controller implements IController {
 
 	public void orderPerform(final IUserOrder userOrder){
 		if (userOrder != null){
-			final IModel player = this.playerModel.getModelByPlayer(userOrder.getPlayer()); // ask Zack method's name IModel and player
+			final IMobile player = this.playerModel.getMobileByPlayer(userOrder.getPlayer()); // ask Zack method's name IModel and player
 			if (player != null){
 				Direction direction;
 				switch (userOrder.getOrder()){
@@ -52,7 +49,7 @@ public final class Controller implements IController {
 						break;
 					case NOP:
 					default:
-						direction = this.playerModel.getMobileByPlayer(userOrder.getPlayer()).getDirection; // ask Zack method's name
+						direction = this.playerModel.getMobileByPlayer(userOrder.getPlayer()).getDirection(); // ask Zack method's name
 						break;
 
 				}
@@ -63,7 +60,7 @@ public final class Controller implements IController {
 
 	public void play() {
 		this.gameLoop();
-		this.viewSystem.displayMessage("Game Over !");
+		this.viewSystem.printMessage("Game Over !");
 		this.viewSystem.closeAll();
 	}
 
@@ -75,11 +72,11 @@ public final class Controller implements IController {
 			catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
-			final ArrayList<IMobile> initialMobiles = new ArrayList<~>();
-			for (final IMobile mobile : this.playerModel.getMobiles) {
+			final ArrayList<IMobile> initialMobiles = new ArrayList<IMobile>();
+			for (final IMobile mobile : this.playerModel.getMobiles()) {
 				initialMobiles.add(mobile);
 			}//IMobile ask Zack Mobile method
-			this.playerModel.setMobilesHaveMoved();
+			this.playerModel.setMobilesHavesMoved();
 		}
 
 
@@ -94,7 +91,7 @@ public final class Controller implements IController {
 	}
 
 	private void setPlayerModel(final IModel model){
-		this.playerModel = model;
+		this.model = model;
 	}
 
 	private IView getView(){
@@ -106,27 +103,24 @@ public final class Controller implements IController {
 		this.view = view;
 	}
 
-	private UserOrder getStackOrder(){
+	private Order getStackOrder(){
 		return this.stackOrder;
 	}
 
 
-	private void setStackOrder(final UserOrder stackOrder) {
+	private void setStackOrder(final Order stackOrder) {
 		this.stackOrder = stackOrder;
 	}
 
 	private void clearStackOrder(){
-		this.stackOrder = UserOrder.NOP;
+		this.stackOrder = Order.NOP;
 	}
 
 	@org.junit.Test
 	public void control() {
 	}
 
-	@Override
-	public void controller() {
 
-	}
 
 	@Override
 	public void orderPerform(ControllerOrder controllerOrder) {
@@ -137,20 +131,5 @@ public final class Controller implements IController {
 	public void orderPerform() {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void control1() {
-	}
-
-	@Test
-	public void orderPerform1() {
-	}
 
 }

@@ -1,13 +1,15 @@
 package model;
 
-public class Position {
+import contract.IPosition;
+
+public class Position implements IPosition {
 
     private int	x;
     private int	y;
     private int	maxX	= 1;
     private int	maxY	= 1;
 
-    public Position(final int x, final int y) {
+    private Position(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
@@ -24,9 +26,7 @@ public class Position {
         this.x = (x + this.maxX) % this.maxX;
     }
 
-    public int getY() {
-        return this.y;
-    }
+    public int getY() { return this.y; }
 
     public void setY(final int y) {
         this.y = (y + this.maxY) % this.maxY;

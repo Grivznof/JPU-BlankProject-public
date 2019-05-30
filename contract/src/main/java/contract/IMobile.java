@@ -1,10 +1,6 @@
-package model.element.mobile;
+package contract;
 
-import model.Dimension;
-import model.Direction;
-import model.IArea;
-import model.Position;
-import model.element.Sprite;
+
 
 public interface IMobile {
 
@@ -12,15 +8,15 @@ public interface IMobile {
 
     public void setDirection(final Direction direction);
 
-    public Position getPosition();
+    public IPosition getPosition();
 
-    public Dimension getDimension();
+    public IDimension getDimension();
 
     public int getWidth();
 
     public int getHeight();
 
-    public Sprite getSprite();
+    //public Sprite getSprite();//
 
     void move();
 

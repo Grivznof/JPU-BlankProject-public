@@ -1,13 +1,13 @@
 package model;
 
-import javax.imageio.ImageIO;
+import contract.IArea;
+import model.Dimension;
+import contract.IDimension;
 import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 
 public class Area {
 
-    public Area(Dimension dimension) {
+    public Area(IDimension dimension) {
 
     }
 

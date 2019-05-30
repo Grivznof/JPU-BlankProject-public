@@ -1,29 +1,21 @@
-package model.element.mobile;
+package model.element;
 
+import contract.*;
 import model.Dimension;
-import model.Direction;
-import model.IArea;
 import model.Position;
-import model.element.Element;
-import model.element.Permeability;
-import model.element.Sprite;
 
-
-abstract class Mobile extends Element implements IMobile{
+abstract class Mobile implements IMobile {
 
     private Direction direction;
-    private final Position position;
-    private final Dimension dimension;
-    private Permeability permeability;
-    private Sprite sprite;
+    private Position position;
+    private Dimension dimension;
 
-    public Mobile(final Direction direction, final Position position, final Dimension dimension, final Permeability permeability, final Sprite sprite) {
-        super (sprite, permeability);
+    Mobile(final Direction direction, final Position position, final Dimension dimension) {
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;
     }
-    
+
     public Direction getDirection() {
         return this.direction;
     }
@@ -68,25 +60,26 @@ abstract class Mobile extends Element implements IMobile{
         }
     }
 
-    private void moveUp() {
+    void moveUp() {
         this.position.setY(this.position.getY() - 1);
     }
 
-    private void moveRight() {
+    void moveRight() {
         this.position.setX(this.position.getX() + 1);
     }
 
-    private void moveDown() {
+    void moveDown() {
         this.position.setY(this.position.getY() + 1);
     }
 
-    private void moveLeft() {
+    void moveLeft() {
         this.position.setX(this.position.getX() - 1);
     }
 
-    public boolean isPlayer(final int player) {
-        return false;
-    }
+
+
+
 }
+
 
 

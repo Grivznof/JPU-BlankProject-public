@@ -4,7 +4,6 @@ import contract.IUserOrder;
 import contract.Order;
 
 public class UserOrder implements IUserOrder {
-
     private final int player;
     private final Order order;
 
