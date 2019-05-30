@@ -4,12 +4,14 @@
  */
 package main;
 
-import contract.ControllerOrder;
-import contract.IController;
+import contract.*;
 import controller.Controller;
-import controller.test.ControllerTest;
 import model.Model;
+import model.element.PlayerModel;
 import view.View;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * The Class Main.
@@ -24,15 +26,18 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException, SQLException {
+        final PlayerModel playerModel= new PlayerModel();
+
+
+
         final Model model = new Model();
         final View view = new View(model);
-        final ControllerTest controller = new ControllerTest(model, view);
+        final Controller controller = new Controller(playerModel , view);
         view.setController(controller);
 
-        final ControllerTest Controller = new ControllerTest(playerModel);
-        final IViewSystem View = new View(Controller, playerModel, playerModel);
-        ControllerTest.setViewSystem(View);
-        ControllerTest.play();
+        controller .orderPerform(ControllerOrder.STAND);
+
+
     }
 }

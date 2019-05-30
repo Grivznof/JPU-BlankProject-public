@@ -22,14 +22,14 @@ public final class Controller implements IController {
 
 
 
-
-	public Controller(final IModel playerModel, final IView view){
+	public Controller(final IPlayerModel playerModel , final IView view){
 		this.setView(view);
 		this.setPlayerModel(playerModel);
 		this.clearStackOrder();
 	}
 
-	public void orderPerform(final IUserOrder userOrder){
+
+    public void orderPerform(final IUserOrder userOrder){
 		if (userOrder != null){
 			final IMobile player = this.playerModel.getMobileByPlayer(userOrder.getPlayer()); // ask Zack method's name IModel and player
 			if (player != null){
@@ -90,8 +90,8 @@ public final class Controller implements IController {
 		return this.model;
 	}
 
-	private void setPlayerModel(final IModel model){
-		this.model = model;
+	private void setPlayerModel(final IPlayerModel playerModel){
+		this.playerModel = playerModel;
 	}
 
 	private IView getView(){
