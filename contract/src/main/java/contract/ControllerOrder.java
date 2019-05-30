@@ -5,14 +5,16 @@ package contract;
  *
  * @author Jean-Aymeric Diet
  */
-public enum ControllerOrder {
+	public enum ControllerOrder {
 
-	/** The English. */
-	English,
-	/** The French. */
-	Francais,
-	/** The Deutch. */
-	Deutsch,
+    /*The English.*/
+		UP,
+	/*The French. */
+		DOWN,
+	/* The Deutch. */
+		LEFT,
 	/** The Indonesia. */
-	Indonesia
+		RIGHT,
+		STAND
+	}
 }

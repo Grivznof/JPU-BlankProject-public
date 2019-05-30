@@ -1,24 +1,16 @@
 package model.element;
 
-import contract.IMobile;
-import contract.Permeability;
+import contract.*;
 import model.Dimension;
-import contract.Direction;
-import contract.IArea;
 import model.Position;
 
-
-abstract class Mobile extends Element implements IMobile {
+abstract class Mobile implements IMobile {
 
     private Direction direction;
     private Position position;
     private Dimension dimension;
-    private Permeability permeability;
-    private Sprite sprite;
-    private IArea area;
 
-    Mobile(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) {
-        super (area, permeability, sprite);
+    Mobile(final Direction direction, final Position position, final Dimension dimension) {
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;

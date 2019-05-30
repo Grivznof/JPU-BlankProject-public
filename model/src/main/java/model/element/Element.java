@@ -1,12 +1,9 @@
 package model.element;
 
 import contract.IArea;
-import contract.IElement;
 import contract.Permeability;
 
-import java.awt.Image;
-
-public abstract class Element implements IElement {
+public abstract class Element{
 
     private Sprite sprite;
 
@@ -24,12 +21,6 @@ public abstract class Element implements IElement {
         return this.sprite;
     }
 
-    /**
-     * Sets the sprite.
-     *
-     * @param sprite
-     *            the new sprite
-     */
     protected final void setSprite(final Sprite sprite) {
         this.sprite = sprite;
     }
@@ -38,19 +29,11 @@ public abstract class Element implements IElement {
         return this.permeability;
     }
 
-    /**
-     * Sets the permeability.
-     *
-     * @param permeability
-     *            the new permeability
-     */
     public void setPermeability(final Permeability permeability) {
         this.permeability = permeability;
     }
 
-    public final Image getImage() {
-        return this.getSprite().getImage();
-    }
-}
+  }
+
 
 

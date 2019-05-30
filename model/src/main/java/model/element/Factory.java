@@ -1,8 +1,9 @@
 package model.element;
 
+import contract.IFactory;
 import contract.Permeability;
 
-public class Factory {
+public abstract class Factory implements IFactory {
 
     private String name;
     private boolean state;
@@ -16,19 +17,19 @@ public class Factory {
 
     public String getName() {return this.name;}
 
-    private void setName(final String name) {
+    public void setName(final String name) {
         this.name = (name);
     }
 
     public boolean getState() {return this.state;}
 
-    private void setState(final boolean state){
+    public void setState(final boolean state){
         this.state = (state);
     }
 
     public Permeability getPermeability() {return this.permeability;}
     
-    private void setPermeability(final Permeability permeability){
+    public void setPermeability(final Permeability permeability){
         this.permeability = (permeability);
 
     }

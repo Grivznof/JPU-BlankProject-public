@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+
+import contract.ITileset;
 import model.element.Tileset;
 
 
@@ -28,9 +31,9 @@ class DAOMap{
 		return this.connection;
 	}
 
-	public ArrayList<Tileset> getMapSql(int ID) throws SQLException {
+	public ArrayList<ITileset> getMapSql(int ID) throws SQLException {
 
-		ArrayList<Tileset> Map = new ArrayList<Tileset>();
+		ArrayList<ITileset> Map = new ArrayList<ITileset>();
 		int i = 0;
 
 		final String sql = "{call GetMap(" + ID + ")}";
@@ -39,8 +42,8 @@ class DAOMap{
 		final ResultSet resultSet = call.getResultSet();
 
 		while (resultSet.next()){
-			Tileset mapTile = new Tileset(resultSet.getString("maps_integrate.nom_materiau"),resultSet.getInt("maps_integrate.X"),resultSet.getInt("maps_integrate.Y"));
-			Map.add(i, mapTile);
+			ITileset tileset = new Tileset(resultSet.getString("maps_integrate.nom_materiau"),resultSet.getInt("maps_integrate.X"),resultSet.getInt("maps_integrate.Y"));
+			Map.add(i, tileset);
 			i++;
 		}
 

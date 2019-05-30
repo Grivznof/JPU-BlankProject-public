@@ -1,18 +1,18 @@
 package model;
 
-public class State {
+import contract.IState;
+
+public class State implements IState {
 
     private boolean moving;
     private boolean pushable;
-    private boolean blocking;
     private boolean diggy;
     private boolean explosable;
     private boolean falling;
 
-    public State(boolean moving, boolean pushable, boolean blocking, boolean diggy, boolean explosable, boolean falling){
+    public State(boolean moving, boolean pushable, boolean diggy, boolean explosable, boolean falling){
         this.moving = moving;
         this.pushable = pushable;
-        this.blocking = blocking;
         this.diggy =  diggy;
         this.explosable = explosable;
         this.falling = falling;
@@ -24,10 +24,6 @@ public class State {
 
     public boolean isPushable() {
         return pushable;
-    }
-
-    public boolean isBlocking() {
-        return blocking;
     }
 
     public boolean isDiggy() {

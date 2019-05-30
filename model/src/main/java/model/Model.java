@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IModel;
+
+import contract.ITileset;
 import model.element.Tileset;
 
 public final class Model extends Observable implements IModel{
 
 
-	private ArrayList<Tileset> map;
+	private ArrayList<contract.ITileset> map;
 	private DAOMap DAO = new DAOMap(DBConnection.getInstance().getConnection());
 	private int ID = 404;
 
@@ -34,7 +36,7 @@ public final class Model extends Observable implements IModel{
 		return result;
 	}
 
-	public ArrayList<Tileset> getMap() {
+	public ArrayList<contract.ITileset> getMap() {
 		return this.map;
 	}
 
@@ -42,17 +44,6 @@ public final class Model extends Observable implements IModel{
 		this.map = DAO.getMapSql(ID);
 	}
 
-
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
 	public Observable getObservable() {
 		return this;
 	}
