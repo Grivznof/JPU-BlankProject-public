@@ -2,6 +2,7 @@ package model.element;
 
 import contract.IArea;
 import contract.IElement;
+import contract.Permeability;
 
 import java.awt.Image;
 
@@ -43,7 +44,7 @@ public abstract class Element implements IElement {
      * @param permeability
      *            the new permeability
      */
-    private void setPermeability(final Permeability permeability) {
+    public void setPermeability(final Permeability permeability) {
         this.permeability = permeability;
     }
 

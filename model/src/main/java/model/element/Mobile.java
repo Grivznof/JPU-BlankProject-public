@@ -1,6 +1,7 @@
 package model.element;
 
 import contract.IMobile;
+import contract.Permeability;
 import model.Dimension;
 import contract.Direction;
 import contract.IArea;

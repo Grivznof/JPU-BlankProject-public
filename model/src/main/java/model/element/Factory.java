@@ -1,6 +1,6 @@
 package model.element;
 
-import model.State;
+import contract.Permeability;
 
 public class Factory {
 
