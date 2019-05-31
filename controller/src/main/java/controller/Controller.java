@@ -47,7 +47,7 @@ public final class Controller implements IController {
 					case LEFT:
 						direction = Direction.LEFT;
 						break;
-					case NOP:
+					case STAND:
 					default:
 						direction = this.playerModel.getMobileByPlayer(userOrder.getPlayer()).getDirection(); // ask Zack method's name
 						break;

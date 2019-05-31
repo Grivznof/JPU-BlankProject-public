@@ -1,13 +1,13 @@
 package controller;
 
+import contract.ControllerOrder;
 import contract.IUserOrder;
-import contract.Order;
 
 public class UserOrder implements IUserOrder {
     private final int player;
-    private final Order order;
+    private final ControllerOrder order;
 
-    public UserOrder(final int player, final Order order) {
+    public UserOrder(final int player, final ControllerOrder order) {
         this.player = player;
         this.order = order;
     }
@@ -18,7 +18,7 @@ public class UserOrder implements IUserOrder {
     }
 
     @Override
-    public Order getOrder() {
+    public ControllerOrder getOrder() {
         return this.order;
     }
 
