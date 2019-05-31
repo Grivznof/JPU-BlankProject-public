@@ -1,26 +1,22 @@
 package contract;
 
 import java.util.ArrayList;
+import contract.IDimension;
 
 public interface IPlayerModel {
 
-    public void buildArea(final IDimension dimension);
 
-    public IArea getArea();
+        public void buildArea(final IDimension dimension);
 
-    public void addMobile(final IMobile mobile);
+        public IArea getArea();
 
-    public void removeMobile(final IMobile mobile);
+        public void addMobile(final IMobile mobile);
 
-    public ArrayList<IMobile> getMobiles();
+        public void removeMobile(final IMobile mobile);
 
-    public IMobile getMobileByPlayer(int player);
+        public ArrayList<IMobile> getMobiles();
 
-    public void setMobilesHavesMoved();
+        public IMobile getMobileByPlayer(int player);
 
-    public Direction getDirection();
-
-    public void setDirection(final Direction direction);
-
+        public void setMobilesHavesMoved();
 }
-

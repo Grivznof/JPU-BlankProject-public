@@ -38,6 +38,9 @@ public class ControllerTest extends Object{
         this.setPlayerModel(playerModel);
         this.clearStackOrder();
     }
+
+    public static void play() {
+    }
 /*
     public void orderPerform(final IUserOrder userOrder){
         if (userOrder != null){

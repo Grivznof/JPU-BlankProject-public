@@ -21,7 +21,7 @@ public abstract class Element{
         return this.sprite;
     }
 
-    protected final void setSprite(final Sprite sprite) {
+    private void setSprite(final Sprite sprite) {
         this.sprite = sprite;
     }
 

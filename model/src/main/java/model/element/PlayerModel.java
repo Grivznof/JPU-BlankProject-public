@@ -51,14 +51,7 @@ public class PlayerModel extends Observable implements IPlayerModel {
         this.notifyObservers();
     }
 
-    @Override
-    public Direction getDirection() {
-        return null;
-    }
 
-    @Override
-    public void setDirection(Direction direction) {
 
-    }
 }
 

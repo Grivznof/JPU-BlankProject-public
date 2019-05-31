@@ -16,9 +16,14 @@ public final class Controller implements IController {
 	private IPlayerModel playerModel;
 	private IView viewSystem;
 	private static int TIME_SLEEP = 30;
-	private UserOrder stackOrder;
+	private Order stackOrder;
+	private IModel model;
+	private IView view;
 
-	public Controller(final IPlayerModel playerModel, final IView view){
+
+
+
+	public Controller(final IModel playerModel, final IView view){
 		this.setView(view);
 		this.setPlayerModel(playerModel);
 		this.clearStackOrder();
@@ -67,54 +72,55 @@ public final class Controller implements IController {
 			catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
-			final ArrayList<IMobile> initialMobiles = new ArrayList<~>();
+			final ArrayList<IMobile> initialMobiles = new ArrayList<IMobile>();
 			for (final IMobile mobile : this.playerModel.getMobiles()) {
 				initialMobiles.add(mobile);
 			}//IMobile ask Zack Mobile method
 			this.playerModel.setMobilesHavesMoved();
 		}
+
+
 	}
 
 	public void setViewSystem(final IView viewSystem) {
 		this.viewSystem = viewSystem;
 	}
 
-	private IPlayerModel getModel(){
+	private IModel getModel(){
 		return this.model;
 	}
 
-	private void setPlayerModel(final IPlayerModel model){
-		this.playerModel = model;
+	private void setPlayerModel(final IModel model){
+		this.model = model;
 	}
 
 	private IView getView(){
 		return this.view;
 	}
 
+
 	private void setView (final IView view) {
 		this.view = view;
 	}
 
-	private UserOrder getStackOrder(){
+	private Order getStackOrder(){
 		return this.stackOrder;
 	}
 
-	private void setStackOrder(final UserOrder stackOrder) {
+
+	private void setStackOrder(final Order stackOrder) {
 		this.stackOrder = stackOrder;
 	}
 
 	private void clearStackOrder(){
-		this.stackOrder = UserOrder.NOP;
+		this.stackOrder = Order.NOP;
 	}
 
 	@org.junit.Test
 	public void control() {
 	}
 
-	@Override
-	public void controller() {
 
-	}
 
 	@Override
 	public void orderPerform(ControllerOrder controllerOrder) {
@@ -125,20 +131,5 @@ public final class Controller implements IController {
 	public void orderPerform() {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void control1() {
-	}
-
-	@Test
-	public void orderPerform1() {
-	}
 
 }

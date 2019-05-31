@@ -18,8 +18,9 @@ public class Sprite {
 
         /** The is image loaded. */
         private boolean imageLoaded;
+    private Sprite sprite;
 
-        /**
+    /**
          * Instantiates a new sprite.
          *
          * @param character
@@ -41,6 +42,14 @@ public class Sprite {
         public Sprite(final char character) {
             this(character, "noimage.jpg");
         }
+
+    public Sprite getSprite() {
+        return this.sprite;
+    }
+
+    private void setSprite(final Sprite sprite) {
+        this.sprite = sprite;
+    }
 
         /**
          * Gets the image.

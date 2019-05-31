@@ -9,8 +9,11 @@ abstract class Mobile implements IMobile {
     private Direction direction;
     private Position position;
     private Dimension dimension;
+    private IArea area;
+    private Permeability permeability;
+    private Sprite sprite;
 
-    Mobile(final Direction direction, final Position position, final Dimension dimension) {
+    Mobile(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) {
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;
@@ -75,6 +78,14 @@ abstract class Mobile implements IMobile {
 
     void moveLeft() {
         this.position.setX(this.position.getX() - 1);
+    }
+
+    public Sprite getSprite() {
+        return this.sprite;
+    }
+
+    public void setSprite(final Sprite sprite) {
+        this.sprite = sprite;
     }
 
 

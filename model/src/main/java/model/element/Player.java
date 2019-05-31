@@ -6,6 +6,7 @@ import contract.Direction;
 import contract.IArea;
 import model.Position;
 
+
 import java.io.IOException;
 
 public abstract class Player extends Mobile{
