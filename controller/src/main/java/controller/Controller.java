@@ -75,7 +75,12 @@ public final class Controller implements IController {
 			final ArrayList<IMobile> initialMobiles = new ArrayList<IMobile>();
 			for (final IMobile mobile : this.playerModel.getMobiles()) {
 				initialMobiles.add(mobile);
-			}//IMobile ask Zack Mobile method
+
+			}
+			for (final IMobile mobile : initialMobiles) {
+				mobile.move();
+			}
+			//IMobile ask Zack Mobile method
 			this.playerModel.setMobilesHavesMoved();
 		}
 
