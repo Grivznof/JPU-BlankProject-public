@@ -8,7 +8,7 @@ public interface IMobile {
 
     public void setDirection(final Direction direction);
 
-    public IPosition getPosition();
+    public ITileset getPosition();
 
     public IDimension getDimension();
 

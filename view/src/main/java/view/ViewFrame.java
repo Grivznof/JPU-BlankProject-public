@@ -124,14 +124,14 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setLocationRelativeTo(null);
 	}
 
-	@Override
+
 	public void keyTyped(KeyEvent e) {
 		
 	}
 
-	@Override
-	public void keyPressed(KeyEvent e) {
 
+	public void keyPressed(KeyEvent e) {
+		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
 	}
 
 	public void keyReleased(final KeyEvent e) {

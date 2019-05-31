@@ -2,19 +2,17 @@ package model.element;
 
 import contract.*;
 import model.Dimension;
-import model.Position;
-
 
 abstract class Mobile implements IMobile {
 
     private Direction direction;
-    private Position position;
+    private Tileset position;
     private Dimension dimension;
     private String name;
     private Permeability permeability;
     private boolean state;
 
-    Mobile(final Direction direction, final Position position, final Dimension dimension, final String name, final Permeability permeability, final boolean state) {
+    Mobile(final Direction direction, final Tileset position, final Dimension dimension, final String name, final Permeability permeability, final boolean state) {
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;
@@ -33,7 +31,7 @@ abstract class Mobile implements IMobile {
     }
 
     
-    public Position getPosition() {
+    public Tileset getPosition() {
         return this.position;
     }
 
@@ -43,10 +41,10 @@ abstract class Mobile implements IMobile {
     }
 
     
-    public void placeInArea(final IArea area) {
+    /*public void placeInArea(final IArea area) {
         this.position.setMaxX(area.getDimension().getWidth());
         this.position.setMaxY(area.getDimension().getHeight());
-    }
+    }*/
 
 
 

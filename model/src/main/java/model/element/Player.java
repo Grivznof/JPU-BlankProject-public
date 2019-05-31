@@ -63,7 +63,7 @@ public abstract class Player extends Mobile{
         return sprite;
     }*/
 
-    public Player(Direction direction,  Position position,  Dimension dimension, String name, Permeability permeability, boolean state){
+    public Player(Direction direction,  Tileset position,  Dimension dimension, String name, Permeability permeability, boolean state){
         super(direction, position, dimension, name, Permeability.BLOCKING, state);
     }
 }
