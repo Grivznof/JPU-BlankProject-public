@@ -14,7 +14,7 @@ public final class Model extends Observable implements IModel{
 
 	private ArrayList<contract.ITileset> map;
 	private DAOMap DAO = new DAOMap(DBConnection.getInstance().getConnection());
-	private int ID = 404;
+	private int ID = 1;
 
 	/**
 	 * Instantiates a new model.

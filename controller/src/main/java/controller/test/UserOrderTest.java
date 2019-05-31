@@ -1,5 +1,5 @@
 package controller.test;
-
+/**
 import contract.IUserOrder;
 import contract.Order;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -57,3 +57,4 @@ public class UserOrderTest implements IUserOrder {
 
 
 }
+*/
