@@ -3,20 +3,24 @@ package model.element;
 import contract.*;
 import model.Dimension;
 import model.Position;
+import model.State;
 
 abstract class Mobile implements IMobile {
 
     private Direction direction;
     private Position position;
     private Dimension dimension;
-    private IArea area;
+    private String name;
     private Permeability permeability;
-    private Sprite sprite;
+    private boolean state;
 
-    Mobile(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) {
+    Mobile(final Direction direction, final Position position, final Dimension dimension, final String name, final Permeability permeability, final boolean state) {
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;
+        this.name = name;
+        this.permeability = permeability;
+        this.state = state;
     }
 
     public Direction getDirection() {
@@ -80,13 +84,13 @@ abstract class Mobile implements IMobile {
         this.position.setX(this.position.getX() - 1);
     }
 
-    public Sprite getSprite() {
+    /*public Sprite getSprite() {
         return this.sprite;
     }
 
     public void setSprite(final Sprite sprite) {
         this.sprite = sprite;
-    }
+    }*/
 
 
 

@@ -1,4 +1,4 @@
-package controller.test;
+/*package controller.test;
 
 import contract.Order;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -32,4 +32,4 @@ public class OrderTest extends Object {
     public void tearDown() throws Exception {
     }
 }
-
+*/

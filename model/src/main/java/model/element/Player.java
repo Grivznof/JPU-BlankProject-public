@@ -11,23 +11,24 @@ import java.io.IOException;
 
 public abstract class Player extends Mobile{
 
-    private static final Sprite sprite = new Sprite('P', "Player.png");
 
-    /** The Constant spriteTurnUp. */
+    /*private static final Sprite sprite = new Sprite('P', "Player.png");
+
+
 
     private static final Sprite spriteTurnUp  = new Sprite('P', "PlayerUp.png");
 
-    /** The Constant spriteTurnDown. */
+
 
     private static final Sprite spriteTurnDown  = new Sprite('P', "PlayerDown.png");
 
-    /** The Constant spriteTurnLeft. */
+
     private static final Sprite spriteTurnLeft  = new Sprite('P', "PlayerLeft.png");
 
-    /** The Constant spriteTurnRight. */
+
     private static final Sprite spriteTurnRight = new Sprite('P', "PlayerRight.png");
 
-    /** The Constant spriteExplode. */
+
     private static final Sprite spriteExplode   = new Sprite('P', "Explode.png");
 
     public Player(final Direction direction, final Position position, final Dimension dimension, final IArea area, final Permeability permeability, final Sprite sprite) throws IOException {
@@ -61,5 +62,13 @@ public abstract class Player extends Mobile{
 
     public Sprite getSprite() {
         return sprite;
+    }*/
+
+    public Player(Direction direction,  Position position,  Dimension dimension, String name, Permeability permeability, boolean state){
+        super(direction, position, dimension, name, Permeability.BLOCKING, state);
     }
 }
+
+
+
+
