@@ -39,8 +39,7 @@ public abstract class Player extends Mobile{
         spriteTurnRight.loadImage();
         spriteExplode.loadImage();
     }
-
-    public final void moveUp() {
+/**     public final void moveUp() {
         super.moveUp();
         this.setSprite(spriteTurnLeft);
     }

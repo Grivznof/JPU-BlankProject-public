@@ -117,6 +117,8 @@ public final class Controller implements IController {
 	}
 
 
+	public void control() {
+	}
 
 
 
@@ -126,6 +128,8 @@ public final class Controller implements IController {
 	}
 
 
+	public void orderPerform() {
+	}
 
 
 }

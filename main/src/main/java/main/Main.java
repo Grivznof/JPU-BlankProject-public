@@ -28,13 +28,11 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws IOException, SQLException {
         final PlayerModel playerModel= new PlayerModel();
-
-
-
         final Model model = new Model();
         final View view = new View(model);
         final Controller controller = new Controller(playerModel , view);
         view.setController(controller);
+
 
         controller .orderPerform(ControllerOrder.NOP);
 

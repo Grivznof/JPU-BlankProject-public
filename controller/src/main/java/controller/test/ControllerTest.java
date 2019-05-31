@@ -1,5 +1,5 @@
-/*package controller.test;
-
+package controller.test;
+/**
 import com.sun.javafx.scene.traversal.Direction;
 import contract.IModel;
 import contract.IView;
@@ -16,7 +16,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
-
+ */
+/**
 @RunWith(Arquillian.class)
 public class ControllerTest extends Object{
 
@@ -37,9 +38,6 @@ public class ControllerTest extends Object{
         this.setView(view);
         this.setPlayerModel(playerModel);
         this.clearStackOrder();
-    }
-
-    public static void play() {
     }
 /*
     public void orderPerform(final IUserOrder userOrder){
@@ -150,4 +148,5 @@ public class ControllerTest extends Object{
     @Test
     public void orderPerform1() {
     }
-}*/
+}
+ */

@@ -62,28 +62,30 @@ class ViewPanel extends JPanel implements Observer {
 
 		ArrayList<ITileset> DrawMap = this.getViewFrame().getModel().getMap();
 		BufferedImage imageTemp = null;
+
 		try {
 			imageTemp = ImageIO.read(new File("C:\\Users\\zacbo\\Documents\\JAVA\\JPU-BlankProject-public\\sprites" + "\\" + "background.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for(int i=0; i<1; i++){
-			graphics.drawImage(imageTemp, 0, 0, 2112, 1056, null);
-		}
+			graphics.drawImage(imageTemp, 0, 0, 1408, 704, null);
+
+
 		for (int i = 0; i < DrawMap.size(); i++) {
 
 			try {
-				if (DrawMap.get(i).getFactory().equals("Empty")) {
-				} else if (DrawMap.get(i).getFactory().equals("Player") || DrawMap.get(i).getFactory().equals("Enemy")) {
-					imageTemp = ImageIO.read(new File("C:\\Users\\zacbo\\Documents\\JAVA\\JPU-BlankProject-public\\sprites" + "\\" + DrawMap.get(i).getFactory() + ".png"));
+				if (DrawMap.get(i).getFactory().equals("nothing")) {
+					imageTemp = null;
+				} else if (DrawMap.get(i).getFactory().equals("player") || DrawMap.get(i).getFactory().equals("enemy")) {
+					imageTemp = ImageIO.read(new File("C:\\Users\\zacbo\\Documents\\JAVA\\JPU-BlankProject-public\\sprites\\" + DrawMap.get(i).getFactory() + ".png"));
 				} else {
-					imageTemp = ImageIO.read(new File("C:\\Users\\zacbo\\Documents\\JAVA\\JPU-BlankProject-public\\sprites" + "\\" + DrawMap.get(i).getFactory() + ".png"));
+					imageTemp = ImageIO.read(new File("C:\\Users\\zacbo\\Documents\\JAVA\\JPU-BlankProject-public\\sprites\\" + DrawMap.get(i).getFactory() + ".png"));
 				}
 
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			graphics.drawImage(imageTemp, DrawMap.get(i).getX() * 3, DrawMap.get(i).getY() * 3, 48, 48, null);
+			graphics.drawImage(imageTemp, DrawMap.get(i).getX() * 32, DrawMap.get(i).getY() * 32, 32, 32, null);
 		}
 
 		this.repaint();

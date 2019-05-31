@@ -3,7 +3,7 @@ package model.element;
 import contract.*;
 import model.Dimension;
 import model.Position;
-import model.State;
+
 
 abstract class Mobile implements IMobile {
 
@@ -48,6 +48,8 @@ abstract class Mobile implements IMobile {
         this.position.setMaxY(area.getDimension().getHeight());
     }
 
+
+
     public void move() {
         switch (this.direction) {
             case UP:
@@ -62,16 +64,14 @@ abstract class Mobile implements IMobile {
             case LEFT:
                 this.moveLeft();
                 break;
-            case NOP:
-                default:
-                    break;
+            default:
+                break;
         }
     }
 
     void moveUp() {
         this.position.setY(this.position.getY() - 1);
     }
-
     void moveRight() {
         this.position.setX(this.position.getX() + 1);
     }
@@ -83,14 +83,6 @@ abstract class Mobile implements IMobile {
     void moveLeft() {
         this.position.setX(this.position.getX() - 1);
     }
-
-    /*public Sprite getSprite() {
-        return this.sprite;
-    }
-
-    public void setSprite(final Sprite sprite) {
-        this.sprite = sprite;
-    }*/
 
 
 
