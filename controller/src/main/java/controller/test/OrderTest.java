@@ -1,5 +1,5 @@
 package controller.test;
-
+/**
 import contract.Order;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -33,3 +33,4 @@ public class OrderTest extends Object {
     }
 }
 
+*/

@@ -10,7 +10,7 @@ abstract class Mobile implements IMobile {
     private Position position;
     private Dimension dimension;
 
-    Mobile(final Direction direction, final Position position, final Dimension dimension) {
+    Mobile(final Direction direction, final Position position, final Dimension dimension, IArea area, Permeability blocking, Sprite sprite) {
         this.direction = direction;
         this.position = position;
         this.dimension = dimension;

@@ -121,7 +121,7 @@ public final class Controller implements IController {
 		this.stackOrder = Order.NOP;
 	}
 
-	@org.junit.Test
+
 	public void control() {
 	}
 
@@ -132,7 +132,7 @@ public final class Controller implements IController {
 
 	}
 
-	@org.junit.Test
+
 	public void orderPerform() {
 	}
 

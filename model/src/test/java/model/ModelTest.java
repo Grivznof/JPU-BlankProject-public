@@ -3,7 +3,7 @@
  * @version 1.0
  */
 package model;
-
+/**
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -38,7 +38,7 @@ public class ModelTest {
 
     /**
      * Test method for {@link model.Model#loadHelloWorld(java.lang.String)}.
-     */
+
     @Test
     public void testGetMessageString() {
         this.model.loadHelloWorld("GB");
@@ -51,3 +51,4 @@ public class ModelTest {
         Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
     }
 }
+ */
